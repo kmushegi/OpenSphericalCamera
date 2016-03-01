@@ -10,6 +10,8 @@ Supported Cameras
 - Untested OSC cameras
 	- [BublCam](http://www.bublcam.com/)
 	- [Panono](https://www.panono.com/home)
+	- [Giroptic](http://us.360.tv/en/)
+	- [360fly](https://360fly.com/)
 
 Usage
 -
@@ -128,7 +130,7 @@ This library was tested with a Ricoh Theta S using Python 2.7 on OSX Yosemite.
 License
 -
 
-Copyright (c) 2016 Haarm-Pieter Duiker <hpd1@duikerresearch.com>
+Copyright (c) 2016 Haarm-Pieter Duiker
 
 See the LICENSE file in this repo
 

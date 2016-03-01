@@ -416,7 +416,6 @@ class OpenSphericalCamera:
         if req.status_code == 200:
             response = req.json()
             state = response['state']
-            print( "State : %s" % state )
         else:
             self._oscError(req)
             state = None
@@ -512,7 +511,7 @@ class OpenSphericalCamera:
         Reference:
         https://developers.google.com/streetview/open-spherical-camera/reference/camera/updatesession
         """
-        url = request("commands/execute")
+        url = self._request("commands/execute")
         body = json.dumps({"name": "camera.updateSession",
              "parameters": { "sessionId":self.sid }
              })

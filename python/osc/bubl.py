@@ -42,13 +42,16 @@ After you import the library, you can use the commands like this:
   # Copy image to computer
   bublcam.getLatestImage()
 
-  # Stream the livePreview video to disk
-  # for 3 seconds
-  bublcam.stream(timeLimitSeconds=3)
-
   # Capture video
   response = bublcam.captureVideo()
   bublcam.stop(response['id'])
+
+  # Get the port and end point for live streaming
+  (bublStreamPort, bublStreamEndPoint) = bublcam.stream()
+
+  # For rtsp video streaming, open the following URI
+  # rtsp streaming not implemented here.
+  rtspUri = "rtsp://%s:%s/%s" % (bubl._ip, bublStreamPort, bublStreamEndPoint)
 
   # Turn the camera off in 30 seconds
   bublcam.shutdown(30)
@@ -111,7 +114,7 @@ class Bublcam(osc.OpenSphericalCamera):
             response = None
         return response
 
-    def getImage(self, fileUri):
+    def bublGetImage(self, fileUri):
         """
         _bublGetImage
 
@@ -121,6 +124,8 @@ class Bublcam(osc.OpenSphericalCamera):
 
         Not currently applying the equivalent of Javascript's encodeURIComponent
         to the fileUri
+
+        Does this provide any functionality beyond the base OSC camera.getImage?
 
         Reference:
         https://github.com/BublTechnology/osc-client/blob/master/lib/BublOscClient.js#L31
@@ -249,14 +254,11 @@ class Bublcam(osc.OpenSphericalCamera):
             response = None
         return response
 
-    def stream(self, fileNamePrefix = "livePreview", timeLimitSeconds=10):
+    def stream(self):
         """
         _bublStream
 
-        Stream the live preview video stream to disk as a series of jpegs. 
-
-        Credit for jpeq decoding:
-        https://stackoverflow.com/questions/21702477/how-to-parse-mjpeg-http-stream-from-ip-camera
+        Return the port and end point to use for rtsp video streaming
 
         Reference:
         https://github.com/BublTechnology/osc-client/blob/master/lib/BublOscClient.js#L59
@@ -276,40 +278,15 @@ class Bublcam(osc.OpenSphericalCamera):
             return acquired
 
         if response.status_code == 200:
-            bytes=''
-            t0 = timeit.default_timer()
-            i = 0
-            for block in response.iter_content(16384):
-                bytes += block
-
-                # Search the current block of bytes for the jpq start and end
-                a = bytes.find('\xff\xd8')
-                b = bytes.find('\xff\xd9')
-
-                # If you have a jpg, write it to disk
-                if a !=- 1 and b != -1:
-                    #print( "Writing frame %04d - Byte range : %d to %d" % (i, a, b) )
-                    # Found a jpg, write to disk
-                    frameFileName = "%s.%04d.jpg" % (fileNamePrefix, i)
-                    with open(frameFileName, 'wb') as handle:
-                        jpg = bytes[a:b+2]
-                        handle.write(jpg)
-
-                        # Reset the buffer to point to the next set of bytes
-                        bytes = bytes[b+2:]
-                        #print( "Wrote frame %04d - %2.2f seconds" % (i, elapsed) )
-
-                    i += 1
-
-                t1 = timeit.default_timer()
-                elapsed = t1 - t0
-                if elapsed > timeLimitSeconds:
-                    #print( "Breaking" )
-                    break
-
-            acquired = True
+            response = req.json()
+            bublStreamPort = response['_bublStreamPort']
+            bublStreamEndPoint = response['_bublStreamEndPoint']
         else:
+            bublStreamPort = None
+            bublStreamEndPoint = None
             self._oscError(response)
+
+        return (bublStreamPort, bublStreamEndPoint)
 # Bublcam
 
 
