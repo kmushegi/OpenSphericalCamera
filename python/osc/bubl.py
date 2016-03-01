@@ -101,7 +101,7 @@ class Bublcam(osc.OpenSphericalCamera):
             body = handle.read()
 
         try:
-            req = requests.get(url, data=body, 
+            req = requests.post(url, data=body, 
                 headers={'Content-Type': 'application/octet-stream'})
         except Exception, e:
             self._httpError(e)
@@ -125,8 +125,6 @@ class Bublcam(osc.OpenSphericalCamera):
         Not currently applying the equivalent of Javascript's encodeURIComponent
         to the fileUri
 
-        Does this provide any functionality beyond the base OSC camera.getImage?
-
         Reference:
         https://github.com/BublTechnology/osc-client/blob/master/lib/BublOscClient.js#L31
         """
@@ -136,7 +134,7 @@ class Bublcam(osc.OpenSphericalCamera):
             fileName = fileUri.split("/")[1]
 
             try:
-                response = requests.post(url, stream=True)
+                response = requests.get(url, stream=True)
             except Exception, e:
                 self._httpError(e)
                 return acquired
