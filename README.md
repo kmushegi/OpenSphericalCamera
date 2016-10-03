@@ -9,7 +9,6 @@ Supported Cameras
 - [Ricoh Theta S](https://developers.theta360.com/en/)
 - Untested OSC cameras
 	- [BublCam](http://www.bublcam.com/)
-	- [Panono](https://www.panono.com/home)
 	- [Giroptic](http://us.360.tv/en/)
 	- [360fly](https://360fly.com/)
 
