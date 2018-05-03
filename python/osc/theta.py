@@ -83,29 +83,30 @@ https://developers.theta360.com/en/docs/v2/api_reference/options/
 '''
 
 g_ricohOptions = [
-            # Custom read-only options
-            "_wlanChannel",            
-            "_remainingVideos",
+    # Custom read-only options
+    "_wlanChannel",
+    "_remainingVideos",
 
-            # Custom options
-            "_captureInterval",
-            "_captureIntervalSupport",
-            "_captureNumber",
-            "_captureNumberSupport",
-            "_filter",
-            "_filterSupport",
-            "_HDMIreso",
-            "_HDMIresoSupport",
-            "_shutterVolume",
-            "_shutterVolumeSupport"
-            ]
+    # Custom options
+    "_captureInterval",
+    "_captureIntervalSupport",
+    "_captureNumber",
+    "_captureNumberSupport",
+    "_filter",
+    "_filterSupport",
+    "_HDMIreso",
+    "_HDMIresoSupport",
+    "_shutterVolume",
+    "_shutterVolumeSupport"
+]
 
 ricohFileFormats = {
-    "image_5k" : {'width': 5376, 'type': 'jpeg', 'height': 2688},
-    "image_2k" : {'width': 2048, 'type': 'jpeg', 'height': 1024},
-    "video_HD_1080" : {"type": "mp4", "width": 1920, "height": 1080},
-    "video_HD_720" : {"type": "mp4", "width": 1280, "height": 720}
+    "image_5k": {'width': 5376, 'type': 'jpeg', 'height': 2688},
+    "image_2k": {'width': 2048, 'type': 'jpeg', 'height': 1024},
+    "video_HD_1080": {"type": "mp4", "width": 1920, "height": 1080},
+    "video_HD_720": {"type": "mp4", "width": 1280, "height": 720}
 }
+
 
 class RicohThetaS(osc.OpenSphericalCamera):
     # Class variables / methods
@@ -124,7 +125,7 @@ class RicohThetaS(osc.OpenSphericalCamera):
     def getCaptureMode(self):
         return self.getOption("captureMode")
 
-    def listAll(self, entryCount = 3, detail = False, sortType = "newest", ):
+    def listAll(self, entryCount=3, detail=False, sortType="newest", ):
         """
         entryCount:
                 Integer No. of still images and video files to be acquired
@@ -142,12 +143,12 @@ class RicohThetaS(osc.OpenSphericalCamera):
         """
         url = self._request("commands/execute")
         body = json.dumps({"name": "camera._listAll",
-             "parameters": {
-                "entryCount": entryCount,
-                "detail": detail,
-                "sort": sortType
-             }
-             })
+                           "parameters": {
+                               "entryCount": entryCount,
+                               "detail": detail,
+                               "sort": sortType
+                           }
+                           })
         try:
             req = requests.post(url, data=body)
         except Exception, e:
@@ -170,12 +171,12 @@ class RicohThetaS(osc.OpenSphericalCamera):
         """
         url = self._request("commands/execute")
         body = json.dumps({"name": "camera._finishWlan",
-             "parameters": {
-                "sessionId": self.sid
-             }
-             })
+                           "parameters": {
+                               "sessionId": self.sid
+                           }
+                           })
         try:
-             req = requests.post(url, data=body)
+            req = requests.post(url, data=body)
         except Exception, e:
             self._httpError(e)
             return None
@@ -200,12 +201,12 @@ class RicohThetaS(osc.OpenSphericalCamera):
         """
         url = self._request("commands/execute")
         body = json.dumps({"name": "camera._startCapture",
-             "parameters": {
-                "sessionId": self.sid
-             }
-             })
+                           "parameters": {
+                               "sessionId": self.sid
+                           }
+                           })
         try:
-             req = requests.post(url, data=body)
+            req = requests.post(url, data=body)
         except Exception, e:
             self._httpError(e)
             return None
@@ -227,10 +228,10 @@ class RicohThetaS(osc.OpenSphericalCamera):
         """
         url = self._request("commands/execute")
         body = json.dumps({"name": "camera._stopCapture",
-             "parameters": {
-                "sessionId": self.sid
-             }
-             })
+                           "parameters": {
+                               "sessionId": self.sid
+                           }
+                           })
         try:
             req = requests.post(url, data=body)
         except Exception, e:
@@ -259,11 +260,11 @@ class RicohThetaS(osc.OpenSphericalCamera):
         if fileUri:
             url = self._request("commands/execute")
             body = json.dumps({"name": "camera._getVideo",
-                 "parameters": {
-                    "fileUri": fileUri,
-                    "type": imageType
-                 }
-                 })
+                               "parameters": {
+                                   "fileUri": fileUri,
+                                   "type": imageType
+                               }
+                               })
             fileName = fileUri.split("/")[1]
 
             try:
@@ -293,7 +294,7 @@ class RicohThetaS(osc.OpenSphericalCamera):
         if fileUri:
             self.getVideo(fileUri, imageType)
 
-    def getLivePreview(self, fileNamePrefix = "livePreview", timeLimitSeconds=10):
+    def getLivePreview(self, fileNamePrefix="livePreview", timeLimitSeconds=10):
         """
         Save the live preview video stream to disk as a series of jpegs. 
         The capture mode must be 'image'.
@@ -308,9 +309,9 @@ class RicohThetaS(osc.OpenSphericalCamera):
 
         url = self._request("commands/execute")
         body = json.dumps({"name": "camera._getLivePreview",
-                "parameters": {
-                    "sessionId": self.sid
-                 }})
+                           "parameters": {
+                               "sessionId": self.sid
+                           }})
 
         try:
             response = requests.post(url, data=body, stream=True)
@@ -319,7 +320,7 @@ class RicohThetaS(osc.OpenSphericalCamera):
             return acquired
 
         if response.status_code == 200:
-            bytes=''
+            bytes = ''
             t0 = timeit.default_timer()
             i = 0
             for block in response.iter_content(16384):
@@ -330,16 +331,16 @@ class RicohThetaS(osc.OpenSphericalCamera):
                 b = bytes.find('\xff\xd9')
 
                 # If you have a jpg, write it to disk
-                if a !=- 1 and b != -1:
+                if a != - 1 and b != -1:
                     #print( "Writing frame %04d - Byte range : %d to %d" % (i, a, b) )
                     # Found a jpg, write to disk
                     frameFileName = "%s.%04d.jpg" % (fileNamePrefix, i)
                     with open(frameFileName, 'wb') as handle:
-                        jpg = bytes[a:b+2]
+                        jpg = bytes[a:b + 2]
                         handle.write(jpg)
 
                         # Reset the buffer to point to the next set of bytes
-                        bytes = bytes[b+2:]
+                        bytes = bytes[b + 2:]
                         #print( "Wrote frame %04d - %2.2f seconds" % (i, elapsed) )
 
                     i += 1
@@ -354,6 +355,3 @@ class RicohThetaS(osc.OpenSphericalCamera):
         else:
             self._oscError(response)
 # RicohThetaS
-
-
-

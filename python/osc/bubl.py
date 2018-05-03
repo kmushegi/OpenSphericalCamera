@@ -82,6 +82,8 @@ __all__ = ['Bublcam']
 #
 # Bubl cam
 #
+
+
 class Bublcam(osc.OpenSphericalCamera):
 
     def __init__(self, ip_base="192.168.0.100", httpPort=80):
@@ -101,8 +103,8 @@ class Bublcam(osc.OpenSphericalCamera):
             body = handle.read()
 
         try:
-            req = requests.post(url, data=body, 
-                headers={'Content-Type': 'application/octet-stream'})
+            req = requests.post(url, data=body,
+                                headers={'Content-Type': 'application/octet-stream'})
         except Exception, e:
             self._httpError(e)
             return None
@@ -158,10 +160,10 @@ class Bublcam(osc.OpenSphericalCamera):
         """
         url = self._request("commands/_bublStop")
         body = json.dumps({
-                "id": commandId
-             })
+            "id": commandId
+        })
         try:
-             req = requests.post(url, data=body)
+            req = requests.post(url, data=body)
         except Exception, e:
             self._httpError(e)
             return None
@@ -182,12 +184,12 @@ class Bublcam(osc.OpenSphericalCamera):
         """
         url = self._request("commands/_bublPoll")
         body = json.dumps({
-                "id": commandId,
-                "fingerprint" : fingerprint,
-                "waitTimeout" : waitTimeout
-             })
+            "id": commandId,
+            "fingerprint": fingerprint,
+            "waitTimeout": waitTimeout
+        })
         try:
-             req = requests.post(url, data=body)
+            req = requests.post(url, data=body)
         except Exception, e:
             self._httpError(e)
             return None
@@ -208,12 +210,12 @@ class Bublcam(osc.OpenSphericalCamera):
         """
         url = self._request("commands/execute")
         body = json.dumps({"name": "camera._bublCaptureVideo",
-             "parameters": {
-                "sessionId": self.sid
-             }
-             })
+                           "parameters": {
+                               "sessionId": self.sid
+                           }
+                           })
         try:
-             req = requests.post(url, data=body)
+            req = requests.post(url, data=body)
         except Exception, e:
             self._httpError(e)
             return None
@@ -234,13 +236,13 @@ class Bublcam(osc.OpenSphericalCamera):
         """
         url = self._request("commands/execute")
         body = json.dumps({"name": "camera._bublShutdown",
-             "parameters": {
-                "sessionId": self.sid,
-                "shutdownDelay" : shutdownDelay
-             }
-             })
+                           "parameters": {
+                               "sessionId": self.sid,
+                               "shutdownDelay": shutdownDelay
+                           }
+                           })
         try:
-             req = requests.post(url, data=body)
+            req = requests.post(url, data=body)
         except Exception, e:
             self._httpError(e)
             return None
@@ -265,9 +267,9 @@ class Bublcam(osc.OpenSphericalCamera):
 
         url = self._request("commands/execute")
         body = json.dumps({"name": "camera._bublStream",
-                "parameters": {
-                    "sessionId": self.sid
-                 }})
+                           "parameters": {
+                               "sessionId": self.sid
+                           }})
 
         try:
             response = requests.post(url, data=body, stream=True)
@@ -286,6 +288,3 @@ class Bublcam(osc.OpenSphericalCamera):
 
         return (bublStreamPort, bublStreamEndPoint)
 # Bublcam
-
-
-

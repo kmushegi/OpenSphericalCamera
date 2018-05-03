@@ -18,4 +18,3 @@ __version__ = '.'.join((__major_version__,
 from osc import OpenSphericalCamera
 from theta import RicohThetaS
 from bubl import Bublcam
-

@@ -66,187 +66,187 @@ __all__ = ['g_oscOptions',
 Reference:
 https://developers.google.com/streetview/open-spherical-camera/reference/options
 '''
-g_oscOptions = [ 
-            # Read-only values
-            "remainingPictures",
-            "remainingSpace",
-            "totalSpace",
+g_oscOptions = [
+    # Read-only values
+    "remainingPictures",
+    "remainingSpace",
+    "totalSpace",
 
-            # Reference options
-            "gpsInfo",
-            "dateTimeZone",
+    # Reference options
+    "gpsInfo",
+    "dateTimeZone",
 
-            "aperture",
-            "apertureSupport",
-            "captureMode",
-            "captureModeSupport",
-            "exposureCompensation",
-            "exposureCompensationSupport",
-            "exposureProgram",
-            "exposureProgramSupport",
-            "fileFormat",
-            "fileFormatSupport",
-            "iso",
-            "isoSupport",
-            "offDelay",
-            "offDelaySupport",
-            "shutterSpeed",
-            "shutterSpeedSupport",
-            "sleepDelay",
-            "sleepDelaySupport",
-            "whiteBalance",
-            "whiteBalanceSupport",
+    "aperture",
+    "apertureSupport",
+    "captureMode",
+    "captureModeSupport",
+    "exposureCompensation",
+    "exposureCompensationSupport",
+    "exposureProgram",
+    "exposureProgramSupport",
+    "fileFormat",
+    "fileFormatSupport",
+    "iso",
+    "isoSupport",
+    "offDelay",
+    "offDelaySupport",
+    "shutterSpeed",
+    "shutterSpeedSupport",
+    "sleepDelay",
+    "sleepDelaySupport",
+    "whiteBalance",
+    "whiteBalanceSupport",
 
-            "exposureDelay",
-            "exposureDelaySupport",
-            "hdr",
-            "hdrSupport",
-            "exposureBracket",
-            "exposureBracketSupport",
-            "gyro",
-            "gyroSupport",
-            "imageStabilization",
-            "imageStabilizationSupport",
-            "wifiPassword"
-            ]
+    "exposureDelay",
+    "exposureDelaySupport",
+    "hdr",
+    "hdrSupport",
+    "exposureBracket",
+    "exposureBracketSupport",
+    "gyro",
+    "gyroSupport",
+    "imageStabilization",
+    "imageStabilizationSupport",
+    "wifiPassword"
+]
 
 #
 # Known options values
 #
 shutterSpeedNames = {
-    0.00015625 : "1/6400", 
-    0.0002 : "1/5000", 
-    0.00025 : "1/4000",
-    0.0003125 : "1/3200", 
-    0.0004 : "1/2500", 
-    0.0005 : "1/2000",
-    0.000625 : "1/1600", 
-    0.0008 : "1/1250", 
-    0.001 : "1/1000",
-    0.00125 : "1/800", 
-    0.0015625 : "1/640", 
-    0.002 : "1/500",
-    0.0025 : "1/400", 
-    0.003125 : "1/320", 
-    0.004 : "1/250",
-    0.005 : "1/200", 
-    0.00625 : "1/160", 
-    0.008 : "1/125",
-    0.01 : "1/100", 
-    0.0125 : "1/80", 
-    0.01666666 : "1/60",
-    0.02 : "1/50", 
-    0.025 : "1/40", 
-    0.03333333 : "1/30",
-    0.04 : "1/25", 
-    0.05 : "1/20", 
-    0.06666666 : "1/15",
-    0.07692307 : "1/13", 
-    0.1 : "1/10", 
-    0.125 : "1/8",
-    0.16666666 : "1/6", 
-    0.2 : "1/5", 
-    0.25 : "1/4",
-    0.33333333 : "1/3", 
-    0.4 : "1/2.5", 
-    0.5 : "1/2",
-    0.625 : "1/1.6", 
-    0.76923076 : "1/1.3", 
-    1 : "1",
-    1.3 : "1.3", 
-    1.6 : "1.6", 
-    2 : "2", 
-    2.5 : "2.5", 
-    3.2 : "3.2", 
-    4 : "4", 
-    5 : "5",
-    6 : "6", 
-    8 : "8", 
-    10 : "10", 
-    13 : "13", 
-    15 : "15", 
-    20 : "20", 
-    25 : "25", 
-    30 : "30", 
-    60 : "60"
+    0.00015625: "1/6400",
+    0.0002: "1/5000",
+    0.00025: "1/4000",
+    0.0003125: "1/3200",
+    0.0004: "1/2500",
+    0.0005: "1/2000",
+    0.000625: "1/1600",
+    0.0008: "1/1250",
+    0.001: "1/1000",
+    0.00125: "1/800",
+    0.0015625: "1/640",
+    0.002: "1/500",
+    0.0025: "1/400",
+    0.003125: "1/320",
+    0.004: "1/250",
+    0.005: "1/200",
+    0.00625: "1/160",
+    0.008: "1/125",
+    0.01: "1/100",
+    0.0125: "1/80",
+    0.01666666: "1/60",
+    0.02: "1/50",
+    0.025: "1/40",
+    0.03333333: "1/30",
+    0.04: "1/25",
+    0.05: "1/20",
+    0.06666666: "1/15",
+    0.07692307: "1/13",
+    0.1: "1/10",
+    0.125: "1/8",
+    0.16666666: "1/6",
+    0.2: "1/5",
+    0.25: "1/4",
+    0.33333333: "1/3",
+    0.4: "1/2.5",
+    0.5: "1/2",
+    0.625: "1/1.6",
+    0.76923076: "1/1.3",
+    1: "1",
+    1.3: "1.3",
+    1.6: "1.6",
+    2: "2",
+    2.5: "2.5",
+    3.2: "3.2",
+    4: "4",
+    5: "5",
+    6: "6",
+    8: "8",
+    10: "10",
+    13: "13",
+    15: "15",
+    20: "20",
+    25: "25",
+    30: "30",
+    60: "60"
 }
 
 shutterSpeeds = [
-    0.00015625, 
-    0.0002, 
+    0.00015625,
+    0.0002,
     0.00025,
-    0.0003125, 
-    0.0004, 
+    0.0003125,
+    0.0004,
     0.0005,
-    0.000625, 
-    0.0008, 
+    0.000625,
+    0.0008,
     0.001,
-    0.00125, 
-    0.0015625, 
+    0.00125,
+    0.0015625,
     0.002,
-    0.0025, 
-    0.003125, 
+    0.0025,
+    0.003125,
     0.004,
-    0.005, 
-    0.00625, 
+    0.005,
+    0.00625,
     0.008,
-    0.01, 
-    0.0125, 
+    0.01,
+    0.0125,
     0.01666666,
-    0.02, 
-    0.025, 
+    0.02,
+    0.025,
     0.03333333,
-    0.04, 
-    0.05, 
+    0.04,
+    0.05,
     0.06666666,
-    0.07692307, 
-    0.1, 
+    0.07692307,
+    0.1,
     0.125,
-    0.16666666, 
-    0.2, 
+    0.16666666,
+    0.2,
     0.25,
-    0.33333333, 
-    0.4, 
+    0.33333333,
+    0.4,
     0.5,
-    0.625, 
-    0.76923076, 
+    0.625,
+    0.76923076,
     1,
-    1.3, 
-    1.6, 
-    2, 
-    2.5, 
-    3.2, 
-    4, 
+    1.3,
+    1.6,
+    2,
+    2.5,
+    3.2,
+    4,
     5,
-    6, 
-    8, 
-    10, 
-    13, 
-    15, 
-    20, 
-    25, 
-    30, 
+    6,
+    8,
+    10,
+    13,
+    15,
+    20,
+    25,
+    30,
     60
 ]
 
 exposurePrograms = {
-    "manual" : 1,
-    "automatic" : 2,
-    "shutter priority" : 4,
-    "iso priority" : 9
+    "manual": 1,
+    "automatic": 2,
+    "shutter priority": 4,
+    "iso priority": 9
 }
 
 whiteBalance = {
-    "Auto" : "auto",
-    "Outdoor" : "daylight",
-    "Shade" : "shade",
-    "Cloudy" : "cloudy-daylight",
-    "Incandescent light 1" : "incandescent",
-    "Incandescent light 2" : "_warmWhiteFluorescent",
-    "Fluorescent light 1 (daylight)" : "_dayLightFluorescent",
-    "Fluorescent light 2 (natural white)" : "_dayWhiteFluorescent",
-    "Fluorescent light 3 (white)" : "fluorescent",
-    "Fluorescent light 4 (light bulb color)" : "_bulbFluorescent"
+    "Auto": "auto",
+    "Outdoor": "daylight",
+    "Shade": "shade",
+    "Cloudy": "cloudy-daylight",
+    "Incandescent light 1": "incandescent",
+    "Incandescent light 2": "_warmWhiteFluorescent",
+    "Fluorescent light 1 (daylight)": "_dayLightFluorescent",
+    "Fluorescent light 2 (natural white)": "_dayWhiteFluorescent",
+    "Fluorescent light 3 (white)": "fluorescent",
+    "Fluorescent light 4 (light bulb color)": "_bulbFluorescent"
 }
 
 #
@@ -278,6 +278,8 @@ unexpected              - 503 - Other errors
 #
 # Generic OpenSphericalCamera
 #
+
+
 class OpenSphericalCamera:
     # Class variables / methods
     oscOptions = g_oscOptions
@@ -313,24 +315,25 @@ class OpenSphericalCamera:
         """
         osc_request = unicode("/osc/" + url_request)
 
-        url_base = "http://%s:%s" % (self._ip, self._httpPort if not update else self._httpUpdatesPort)
+        url_base = "http://%s:%s" % (self._ip,
+                                     self._httpPort if not update else self._httpUpdatesPort)
 
         if self._api:
             if osc_request in self._api:
                 url = url_base + osc_request
             else:
-                print( "OSC Error - Unsupported API  : %s" % osc_request )
-                print( "OSC Error - Supported API is : %s" % self._api )
+                print("OSC Error - Unsupported API  : %s" % osc_request)
+                print("OSC Error - Supported API is : %s" % self._api)
                 url = None
         else:
-                url = url_base + osc_request
+            url = url_base + osc_request
 
         return url
 
     def _httpError(self, exception):
-        print( "HTTP Error - begin" )
-        print( repr(exception) )
-        print( "HTTP Error - end" )
+        print("HTTP Error - begin")
+        print(repr(exception))
+        print("HTTP Error - end")
 
     def _oscError(self, request):
         status = request.status_code
@@ -338,14 +341,15 @@ class OpenSphericalCamera:
         try:
             error = request.json()
 
-            print( "OSC Error - HTTP Status : %s" % status)
+            print("OSC Error - HTTP Status : %s" % status)
             if 'error' in error:
-                print( "OSC Error - Code        : %s" % error['error']['code'])
-                print( "OSC Error - Message     : %s" % error['error']['message'])
-            print( "OSC Error - Name        : %s" % error['name'])
-            print( "OSC Error - State       : %s" % error['state'])
+                print("OSC Error - Code        : %s" % error['error']['code'])
+                print("OSC Error - Message     : %s" %
+                      error['error']['message'])
+            print("OSC Error - Name        : %s" % error['name'])
+            print("OSC Error - State       : %s" % error['state'])
         except:
-            print( "OSC Error - HTTP Status : %s" % status)
+            print("OSC Error - HTTP Status : %s" % status)
 
         return status
 
@@ -443,11 +447,12 @@ class OpenSphericalCamera:
             response = req.json()
             newFingerprint = response['stateFingerprint']
             if newFingerprint != self.fingerprint:
-                print( "Update - new, old fingerprint : %s, %s" % (newFingerprint, self.fingerprint) )
+                print("Update - new, old fingerprint : %s, %s" %
+                      (newFingerprint, self.fingerprint))
                 self.fingerprint = newFingerprint
                 response = True
             else:
-                print( "No update - fingerprint : %s" % self.fingerprint )
+                print("No update - fingerprint : %s" % self.fingerprint)
                 response = False
         else:
             self._oscError(req)
@@ -463,17 +468,17 @@ class OpenSphericalCamera:
         https://developers.google.com/streetview/open-spherical-camera/guides/osc/commands/status
         """
 
-        print( "Waiting for processing")
+        print("Waiting for processing")
         for i in range(maxWait):
             status = self.status(command_id)
             if status == "done":
-                print( "Image processing finished" )
+                print("Image processing finished")
                 break
             elif not status or "error" in status:
-                print( "Status failed. Stopping wait." )
+                print("Status failed. Stopping wait.")
                 break
-            print( "%d - %s" % (i, status) )
-            time.sleep( 1 )
+            print("%d - %s" % (i, status))
+            time.sleep(1)
 
         return
 
@@ -487,8 +492,8 @@ class OpenSphericalCamera:
         """
         url = self._request("commands/execute")
         body = json.dumps({"name": "camera.startSession",
-             "parameters": {}
-             })
+                           "parameters": {}
+                           })
         try:
             req = requests.post(url, data=body)
         except Exception, e:
@@ -513,8 +518,8 @@ class OpenSphericalCamera:
         """
         url = self._request("commands/execute")
         body = json.dumps({"name": "camera.updateSession",
-             "parameters": { "sessionId":self.sid }
-             })
+                           "parameters": {"sessionId": self.sid}
+                           })
         try:
             req = requests.post(url, data=body)
         except Exception, e:
@@ -539,8 +544,8 @@ class OpenSphericalCamera:
         """
         url = self._request("commands/execute")
         body = json.dumps({"name": "camera.closeSession",
-             "parameters": { "sessionId":self.sid }
-             })
+                           "parameters": {"sessionId": self.sid}
+                           })
         try:
             req = requests.post(url, data=body)
         except Exception, e:
@@ -570,10 +575,10 @@ class OpenSphericalCamera:
             return response
         url = self._request("commands/execute")
         body = json.dumps({"name": "camera.takePicture",
-             "parameters": {
-                "sessionId": self.sid
-             }
-             })
+                           "parameters": {
+                               "sessionId": self.sid
+                           }
+                           })
         try:
             req = requests.post(url, data=body)
         except Exception, e:
@@ -587,8 +592,8 @@ class OpenSphericalCamera:
             response = None
         return response
 
-    def listImages(self, entryCount = 3, maxSize = None, 
-        continuationToken = None, includeThumb = True ):
+    def listImages(self, entryCount=3, maxSize=None,
+                   continuationToken=None, includeThumb=True):
         """
         entryCount:
                 Integer No. of still images and video files to be acquired
@@ -607,9 +612,9 @@ class OpenSphericalCamera:
         https://developers.google.com/streetview/open-spherical-camera/reference/camera/listimages
         """
         parameters = {
-                "entryCount": entryCount,
-                "includeThumb": includeThumb,
-             }
+            "entryCount": entryCount,
+            "includeThumb": includeThumb,
+        }
         if maxSize is not None:
             parameters['maxSize'] = maxSize
         if continuationToken is not None:
@@ -617,8 +622,8 @@ class OpenSphericalCamera:
 
         url = self._request("commands/execute")
         body = json.dumps({"name": "camera.listImages",
-             "parameters": parameters
-             })
+                           "parameters": parameters
+                           })
         try:
             req = requests.post(url, data=body)
         except Exception, e:
@@ -641,10 +646,10 @@ class OpenSphericalCamera:
         """
         url = self._request("commands/execute")
         body = json.dumps({"name": "camera.delete",
-             "parameters": {
-                "fileUri": fileUri
-             }
-             })
+                           "parameters": {
+                               "fileUri": fileUri
+                           }
+                           })
         try:
             req = requests.post(url, data=body)
         except Exception, e:
@@ -671,13 +676,13 @@ class OpenSphericalCamera:
         """
         url = self._request("commands/execute")
         body = json.dumps({"name": "camera.getImage",
-             "parameters": {
-                "fileUri": fileUri,
-                "_type": imageType
-             }
-             })
+                           "parameters": {
+                               "fileUri": fileUri,
+                               "_type": imageType
+                           }
+                           })
         fileName = fileUri.split("/")[1]
-        print( "Writing image : %s" % fileName )
+        print("Writing image : %s" % fileName)
 
         acquired = False
         try:
@@ -705,10 +710,10 @@ class OpenSphericalCamera:
         """
         url = self._request("commands/execute")
         body = json.dumps({"name": "camera.getMetadata",
-             "parameters": {
-                "fileUri": fileUri
-             }
-             })
+                           "parameters": {
+                               "fileUri": fileUri
+                           }
+                           })
         try:
             req = requests.post(url, data=body)
         except Exception, e:
@@ -736,17 +741,17 @@ class OpenSphericalCamera:
             response = None
             return response
 
-        print( "setOption - %s : %s" % (option, value) )
+        print("setOption - %s : %s" % (option, value))
 
         url = self._request("commands/execute")
         body = json.dumps({"name": "camera.setOptions",
-             "parameters": {
-                "sessionId": self.sid,
-                "options": {
-                        option: value,
-                        }
-             }
-             })
+                           "parameters": {
+                               "sessionId": self.sid,
+                               "options": {
+                                   option: value,
+                               }
+                           }
+                           })
         try:
             req = requests.post(url, data=body)
         except Exception, e:
@@ -772,12 +777,12 @@ class OpenSphericalCamera:
         """
         url = self._request("commands/execute")
         body = json.dumps({"name": "camera.getOptions",
-             "parameters": {
-                "sessionId": self.sid,
-                "optionNames": [
-                        option]
-             }
-             })
+                           "parameters": {
+                               "sessionId": self.sid,
+                               "optionNames": [
+                                   option]
+                           }
+                           })
         try:
             req = requests.post(url, data=body)
         except Exception, e:
@@ -820,11 +825,11 @@ class OpenSphericalCamera:
         """
         url = self._request("commands/execute")
         body = json.dumps({"name": "camera.getOptions",
-                 "parameters": {
-                    "sessionId": self.sid,
-                    "optionNames": self.getOptionNames()
-                 }
-             })
+                           "parameters": {
+                               "sessionId": self.sid,
+                               "optionNames": self.getOptionNames()
+                           }
+                           })
         try:
             req = requests.post(url, data=body)
         except Exception, e:
@@ -876,4 +881,3 @@ class OpenSphericalCamera:
         return metadata
 
 # OpenSphericalCamera
-
